@@ -1,0 +1,27 @@
+{
+  "name": "jsdom-react-scraper",
+  "version": "1.0.0",
+  "description": "JSDOM-React website data scraper and visualizer.",
+  "main": "\"\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CunningDJ/JSDOM-React-Scraper.git"
+  },
+  "keywords": [
+    "react",
+    "jsdom",
+    "scraper",
+    "typescript",
+    "expressjs",
+    "analytics"
+  ],
+  "author": "David J. Cunningham <david@cunningdj.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CunningDJ/JSDOM-React-Scraper/issues"
+  },
+  "homepage": "https://github.com/CunningDJ/JSDOM-React-Scraper#readme"
+}
