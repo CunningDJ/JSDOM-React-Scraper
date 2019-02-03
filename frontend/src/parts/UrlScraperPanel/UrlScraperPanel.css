@@ -1,0 +1,39 @@
+/* Master */
+.url-scraper-panel {
+
+}
+
+
+/* URL Input form */
+.url-scraper-panel__form {
+
+}
+
+.url-scraper-panel__url-input {
+    margin: 5px;
+    height: 20px;
+    width: 200px;
+    border-color: #777;
+    border-width: 1px;
+}
+
+.url-scraper-panel__submit-button {
+    margin: 5px;
+    height: 45px;
+    width: 80px;
+    font-size: 15px;
+    font-weight: bold;
+    border-color: #777;
+    border-width: 1px;
+}
+
+.url-scraper-panel__form-error, .url-scraper-panel__url-input-error {
+    color: red;
+    margin: 0px;
+}
+
+
+/* Data Visualization */
+.url-scraper-panel__vis {
+
+}
