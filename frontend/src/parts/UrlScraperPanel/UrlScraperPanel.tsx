@@ -59,6 +59,13 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
     const { urlInput } = this.state;
 
     // Checking validly formatted URL
+    if (urlInput.length === 0) {
+      this.setState({
+        urlInputError: "Must enter a URL."
+      })
+      return;
+    }
+
     if (!isUrl(urlInput)) {
       this.setState({
         urlInputError: "Invalid format for URL"
@@ -113,7 +120,6 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
           </div>
           <p className="url-scraper-panel__form-error">{this.state.formError}</p>
           <div>
-            {/*<h3 className="url-scraper-panel__url-input-label">URL</h3>*/}
             <p className="url-scraper-panel__url-input-error">{this.state.urlInputError}</p>
             <input 
               className="url-scraper-panel__url-input" 
@@ -133,6 +139,9 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
         {}
         <div className="url-scraper-panel__vis item-box" style={scrapeDataVisStyle}>
           <h2>Data Visualization</h2>
+          <pre className="">
+            {JSON.stringify(sdata, null, 2)}
+          </pre>
         </div>
       </div>
     );
