@@ -7,9 +7,7 @@ const META_ITEMS = ['description'];
 
 export function scrapeUrlData(url: string): Promise<IGetScrapedUrlData> {
   return new Promise((resolve, reject) => {
-    // TODO: Actual logic using JSDOM.fromURL
     let sdata: IGetScrapedUrlData = {} as IGetScrapedUrlData;
-    //return resolve(sdata);
 
     JSDOM.fromURL(url)
             .then((dom) => {
