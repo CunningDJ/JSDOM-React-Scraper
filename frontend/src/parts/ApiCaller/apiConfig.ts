@@ -11,7 +11,7 @@ interface IApiBaseUrlConfig {
 
 const apiConfig: IApiConfig = {
     base: {
-        dev: "http://location:9191",
+        dev: "http://localhost:9191",
         prod: ""
     }
 }
