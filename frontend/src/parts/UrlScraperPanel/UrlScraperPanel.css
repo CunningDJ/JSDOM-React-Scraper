@@ -37,3 +37,29 @@
 .url-scraper-panel__vis {
 
 }
+
+
+.url-scraper-panel__anch-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.url-scraper-panel__anch-table td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.url-scraper-panel__anch-table td a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 700;
+}
+
+.url-scraper-panel__anch-table tr:nth-child(even) {
+  background-color: #8ec8ff;
+}
+
+.url-scraper-panel__anch-table tr:nth-child(odd) {
+  background-color: white;
+}

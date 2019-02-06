@@ -3,7 +3,7 @@ import { FormEvent, MouseEvent } from 'react';
 import isUrl from 'is-url';
 
 import { getScrapedUrlData } from '../ApiCaller/ApiCaller';
-import { IGetScrapedUrlData } from '../ApiCaller/ApiCaller.d';
+import { IGetScrapedUrlData, IAnchorHostsStats } from '../ApiCaller/ApiCaller.d';
 
 import './UrlScraperPanel.css';
 
@@ -108,7 +108,7 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
   }
 
   public render() {
-    const sdata = this.state.scrapeData;
+    const sdata: IGetScrapedUrlData | null = this.state.scrapeData;
     const scrapeDataVisStyle = sdata && !this.state.dataFetching ? 
                                   {} : {display: 'none'};
 
@@ -136,14 +136,50 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
             </button>
           </div>
         </form>
-        {}
+
         <div className="url-scraper-panel__vis item-box" style={scrapeDataVisStyle}>
           <h2>Data Visualization</h2>
-          <pre className="">
-            {JSON.stringify(sdata, null, 2)}
-          </pre>
+          <h3>Anchors</h3>
+          <p><b># of Anchors:</b> {sdata ? sdata.anchorsCount : ""}</p>
+          <table className="url-scraper-panel__anch-table">
+            <thead>
+              <th>Host</th>
+              <th>Text</th>
+              <th>HREF</th>
+            </thead>
+            <tbody>
+              {sdata ? anchorHostsTableRows(sdata.anchorHosts) : ""}
+            </tbody>
+          </table>
         </div>
       </div>
     );
   }
+}
+
+
+function anchorHostsTableRows(anchorHosts: IAnchorHostsStats) {
+  const tableRows: any[] = [];
+  Object.keys(anchorHosts).forEach((host) => {
+    const hostItems = anchorHosts[host];
+    host = host === "" ? "[NO HOST]" : host;
+    tableRows.push(
+      <tr>
+        <td rowSpan={hostItems.length}>{host}</td>
+        <td>{hostItems[0].text}</td>
+        <td><a href={hostItems[0].href}>{hostItems[0].href}</a></td>
+      </tr>
+    )
+
+     hostItems.slice(1).forEach(({ text, href }) => {
+        tableRows.push(
+          <tr>
+            <td style={{display:"none"}}/>
+            <td>{text}</td>
+            <td><a href={href}>{href}</a></td>
+          </tr>
+        )
+      })
+  });
+  return tableRows;
 }
