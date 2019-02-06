@@ -38,6 +38,9 @@
 
 }
 
+.url-scraper-panel__vis-title {
+    font-size: 55px;
+}
 
 .url-scraper-panel__anch-table {
   border-collapse: collapse;

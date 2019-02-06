@@ -116,7 +116,7 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
       <div className="url-scraper-panel">
         <form className="url-scraper-panel__form item-box">
           <div>
-            <h1>URL Scraper</h1>
+            <h1>Page Scraper</h1>
           </div>
           <p className="url-scraper-panel__form-error">{this.state.formError}</p>
           <div>
@@ -138,8 +138,20 @@ export default class UrlScraperPanel extends React.Component<IUrlScraperPanelPro
         </form>
 
         <div className="url-scraper-panel__vis item-box" style={scrapeDataVisStyle}>
-          <h2>Data Visualization</h2>
-          <h3>Anchors</h3>
+          <h1 className="url-scraper-panel__vis-title">{ sdata ? sdata.title : "" }</h1>
+
+          <h2>Description</h2>
+          <p>{ sdata ? sdata.description : "" }</p>
+
+          <h2>Paragraph Text</h2>
+          {
+            sdata ?
+              sdata.paragraphs.map(text => (<p>{text}</p>))
+                :
+              ""
+          }
+
+          <h2>Anchors</h2>
           <p><b># of Anchors:</b> {sdata ? sdata.anchorsCount : ""}</p>
           <table className="url-scraper-panel__anch-table">
             <thead>
