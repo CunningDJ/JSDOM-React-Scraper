@@ -15,10 +15,9 @@ export interface IGetScrapedUrlData {
   paragraphs: string[];
 }
 
-interface IAnchorHostsStats {
+export interface IAnchorHostsStats {
     [host: string]:
         { href: string, text: string }[];
-
 }
 
 export interface IGetScrapedUrlDataResponse extends AxiosResponse<IDefaultJsonReturn<IGetScrapedUrlData>> {}
